@@ -298,10 +298,10 @@ class Node:
 # %%
 class Problem:
 
-    def __init__(self, filename):
+    def __init__(self, problem):
         # Method to read the problem JSON file
-        with open(filename, 'r', encoding='utf8') as file:
-            problem = json.load(file)
+        # with open(filename, 'r', encoding='utf8') as file:
+        #     problem = json.load(file)
         
         # Auxiliary structures for the plot_map function
         self.cities = {city['id']: city for city in problem['map']['cities']}
@@ -704,7 +704,7 @@ class BreadthFirst(Search):
 # %%
 class BestFirst(Search):
     
-    def __init__(self, parent_args, heuristica):
+    def __init__(self, parent_args, heuristica='geodesic'):
         # Calling the constructor of the parent class
         # with its corresponding arguments
         super().__init__(parent_args)
@@ -808,7 +808,7 @@ class BestFirst(Search):
 
 # %%
 class AStar(Search):
-    def __init__(self, parent_args, heuristica):
+    def __init__(self, parent_args, heuristica='geodesic'):
         # Calling the constructor of the parent class
         # with its corresponding arguments
         super().__init__(parent_args)
